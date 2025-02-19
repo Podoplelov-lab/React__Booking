@@ -1,0 +1,121 @@
+.footer_container {
+    display: flex;
+    background-color: #333333;
+    padding: 45px;
+    border-radius: 15px;
+    background-image: url(C:\Users\Thunderobot\Desktop\Car\src\img\Frame.svg);
+    background-repeat: no-repeat;
+    background-position: 739px bottom;
+  }
+  
+  .footer_left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 125px;
+  }
+  
+  .footer_text {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    max-width: 302px;
+    margin-bottom: 37px;
+    color: #FFFFFF;
+  }
+  
+  .footer_text2 {
+    margin: 0 ;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #FFFFFF;
+    max-width: 302px;
+    margin-bottom: 40px;
+  }
+  
+  .footer_link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #CC9933;
+  }
+  
+  .footer_center {
+    margin-right: auto;
+    font-style: normal;
+  }
+  
+  .footer_address {
+    margin: 0 ;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #FFFFFF;
+    max-width: 359px;
+    margin-bottom: 15px;
+  }
+  
+  .footer_tel:not(:last-child) {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .footer_logo {
+    margin-top: 112px;
+    margin-right: 177px;
+    max-width: 254px;
+    width: 100%;
+    min-height: 228px;
+  }
+  
+  .footer_element {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .img:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .footer{
+    padding-bottom:30px ;
+  }
+  
+  .component:not(:last-child){
+  margin-bottom: 20px;
+  }
+
+
+  .tel {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #CC9933;
+    width: fit-content;
+  }
+  
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 23px;
+    border-bottom: 1px solid rgba(233, 233, 233, 1);
+  }
+  
+  
+  .email {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #CC9933;
+    font-style: normal;
+  }

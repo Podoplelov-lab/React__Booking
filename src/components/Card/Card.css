@@ -1,0 +1,167 @@
+.placement-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.placement-item {
+  max-width: 374px;
+  width: 100%;
+  min-height: 440px;
+  width: 300px;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.placement {
+  display: block;
+}
+
+.border-placement {
+  padding: 32px 45px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.placement__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.placement-item_end {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 27px;
+
+}
+
+.placement__text {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 40px;
+  color: #FFFFFF;
+}
+
+.price-placement {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #999999;
+  margin-right: 4px;
+}
+
+.star {
+  max-width: 14px;
+  min-height: 14px;
+
+}
+
+.text-placement {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.country {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #999999;
+  margin-bottom: 20px;
+}
+
+.rooms {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 16px;
+  color: #CC9933;
+  border: 1px solid #CC9933;
+  padding: 13px 20px;
+  border-radius: 10px;
+  display: flex;
+}
+
+/*  */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 31px 28px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+}
+
+.shape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.info_form {
+  border: 0;
+}
+
+.label {
+  width: 169px;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+}
+
+.label_2 {
+  display: flex;
+  flex-direction: column;
+  width: 121px;
+}
+
+.info_form:not(:last-child) {
+  margin-right: 41px;
+}
+
+.border_shape {
+  background-color: #E9E9E9;
+  padding: 45px;
+  border-radius: 15px;
+}
+
+
+.color {
+  background-color: #FFFFFF;
+  padding: 31px 28px;
+  border-radius: 15px;
+}
+
+.info_shape {
+  display: flex;
+  align-items: center;
+}
+
+.shape_info {
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.shape_border {
+  border-bottom: 1px solid #E9E9E9;
+}
+
+.btn-form {
+  padding: 13px
+}

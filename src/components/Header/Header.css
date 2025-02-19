@@ -1,0 +1,97 @@
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+  }
+
+
+  .list-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .btn {
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 16px;
+    color: #CC9933;
+    border: 1px solid #CC9933;
+    padding: 13px 20px;
+    border-radius: 10px;
+  }
+  
+  
+  
+  .section-offset {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  
+  .header {
+    padding-top: 30px;
+    padding-bottom: 35px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    padding: 0 15px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .container-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .header-logo {
+    margin-right: 30px;
+  }
+  
+  .nomber {
+    margin-right: auto;
+    font-weight: 500;
+    font-size: 20px;
+    color: #666666;
+    line-height: normal;
+  }
+  
+  .keyboard_tab {
+    font-weight: 400;
+    font-size: 16px;
+    color: #CC9933;
+  }
+  
+  .header__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 45px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+  }
+  
+  .nav__lists {
+    display: flex;
+    gap: 45px;
+    flex-wrap: wrap;
+    font-weight: 400;
+    font-size: 16px;
+    color: #666666;
+  }
+  
+  .header__btn:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  .svg__header{
+    margin-right: 5px;
+  }
