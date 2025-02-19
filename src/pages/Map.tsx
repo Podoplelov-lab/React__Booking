@@ -1,58 +1,79 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import Dravers from '../components/Drawer/Drawers.tsx';
+import { Drawer } from 'antd';
+import { setSelectedHotel } from '../store/slice/hotels.ts';
 
 declare const ymaps: any; // Указываем, что `ymaps` будет доступен глобально
 
 function Map() {
     const data = useSelector((state: RootState) => state.hotels.data);
     const selectedHotel = useSelector((state: RootState) => state.hotels.selectedHotel);
+    const coords = selectedHotel? [selectedHotel.geoCode.latitude, selectedHotel.geoCode.longitude]  :  [55.76, 37.64]
+    const zoom = selectedHotel? 13  :  2
+    const mapInstance = useRef(null)
+    // const [open, setOpen] = useState(!!selectedHotel)
 
-    const [cord, setCord] = useState<[number, number]>([55.76, 37.64]);
-    const [openDrawer, setOpenDrawer] = useState(false);
-    const [selectedHotelData, setSelectedHotelData] = useState<any>(null);
-
+    const dispatch = useDispatch()
+    
     useEffect(() => {
-        if (selectedHotel?.geoCode?.latitude && selectedHotel?.geoCode?.longitude) {
-            setCord([selectedHotel.geoCode.latitude, selectedHotel.geoCode.longitude]);
+        if (mapInstance?.current && selectedHotel?.geoCode?.latitude && selectedHotel?.geoCode?.longitude) {
+            // mapInstance.current.panTo(coords)
+            // mapInstance.current.setZoom(13)
+            mapInstance.current.setCenter(coords, 13)
         }
     }, [selectedHotel]);
+
 
     useEffect(() => {
         if (!data) return;
 
-        const locations = data.map(({ geoCode, ...hotel }) => {
-            const { latitude, longitude } = geoCode;
-            return { coords: [latitude, longitude], hotel };
-        });
-
         ymaps.ready(init);
 
         function init() {
-            const myMap = new ymaps.Map("map", {
-                center: cord,
-                zoom: 7,
+            mapInstance.current = new ymaps.Map("map", {
+                center: coords,
+                zoom: zoom,
                 controls: []
             });
 
-            locations.forEach(({ coords, hotel }) => {
-                const placemark = new ymaps.Placemark(coords);
+            data?.forEach((item) => {
+                const {latitude, longitude} = item.geoCode
+                const placemark = new ymaps.Placemark([latitude, longitude]);
 
                 placemark.events.add('click', () => {
-                    setSelectedHotelData(hotel);
-                    setOpenDrawer(true);
+                    dispatch(setSelectedHotel(item))
+                    // showDrawer();
                 });
 
-                myMap.geoObjects.add(placemark);
+                mapInstance.current?.geoObjects.add(placemark);
             });
         }
     }, [data]);
 
+    const onClose = () => {
+        // setOpen(false);
+        dispatch(setSelectedHotel(null))
+    };
+
+    // const showDrawer = () => {
+    //     setOpen(true);
+    // };
+
     return (
         <>
-            <div style={{ width: '1150px', height: '600px', marginBottom: '40px' }} id="map"></div>
-            <Dravers visible={openDrawer} onClose={() => setOpenDrawer(false)} hotel={selectedHotelData} />
+            <div style={{ width: '1150px', height: '600px', marginBottom: '40px', position: 'relative', overflow: 'hidden' }} id="map">
+                <Drawer
+                    title="Basic Drawer"
+                    placement="left"
+                    closable={false}
+                    onClose={onClose}
+                    open={!!selectedHotel}
+                    getContainer={false}
+                >
+                    <p>Some contents...</p>
+                </Drawer>
+            </div>
         </>
     );
 }
