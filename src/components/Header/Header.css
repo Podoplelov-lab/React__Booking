@@ -95,3 +95,9 @@
   .svg__header{
     margin-right: 5px;
   }
+
+  .like{
+    max-height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+  }

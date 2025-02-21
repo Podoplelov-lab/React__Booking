@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { Drawer } from 'antd';
+import { Drawer, Modal } from 'antd';
 import { setSelectedHotel } from '../store/slice/hotels.ts';
+import ModalComponent from '../components/Modal/Modal.tsx';
 
 declare const ymaps: any; // Указываем, что `ymaps` будет доступен глобально
 
@@ -60,6 +61,10 @@ function Map() {
     //     setOpen(true);
     // };
 
+      const [modalIsOpen, setModalIsOpen] = useState(false);
+
+      const openModal = () => setModalIsOpen(true);
+
     return (
         <>
             <div style={{ width: '1150px', height: '600px', marginBottom: '40px', position: 'relative', overflow: 'hidden' }} id="map">
@@ -71,9 +76,13 @@ function Map() {
                     open={!!selectedHotel}
                     getContainer={false}
                 >
-                    <p>Some contents...</p>
+                    <p>Страна: {selectedHotel?.address.countryCode}</p>
+                    <p>Адрес: {selectedHotel?.address.cityName}</p>
+                    <p>Название отеля: {selectedHotel?.name}</p>
+                    <button onClick={openModal} style={{cursor: 'pointer',  backgroundColor: 'transparent',  color: '#CC9933',   border: '1px solid #CC9933',   padding: '13px 20px'}}>Забронировать отель</button>
                 </Drawer>
             </div>
+            {modalIsOpen === true ? <ModalComponent/> : ''}
         </>
     );
 }

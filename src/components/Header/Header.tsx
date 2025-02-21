@@ -15,6 +15,7 @@ function Header() {
               <path d="M10.59 1.41L14.17 5H0V7H14.17L10.58 10.59L12 12L18 6L12 0L10.59 1.41ZM19 0V12H21V0H19Z" fill="#CC9933" />
             </svg>
             Личный&nbsp;кабинет</a>
+            <img className='like' src="../src/img/like.png" alt="" />
         </div>
         <div className="header__bottom">
           <nav className="nav">
