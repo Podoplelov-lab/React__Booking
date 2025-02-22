@@ -18,7 +18,7 @@ function Main() {
   return (
     <>
       <Select value={value} onChange={setValue} options={countyOptions} />
-      <List dataSource={filterByCountry} renderItem={(item) => <Card item={item} />} />
+      <List dataSource={filterByCountry} renderItem={(item) => <Card key={item.id} item={item} />} />
     </>
   );
 }

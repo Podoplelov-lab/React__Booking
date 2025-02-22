@@ -10,13 +10,13 @@ declare const ymaps: any; // Указываем, что `ymaps` будет до�
 function Map() {
     const data = useSelector((state: RootState) => state.hotels.data);
     const selectedHotel = useSelector((state: RootState) => state.hotels.selectedHotel);
-    const coords = selectedHotel? [selectedHotel.geoCode.latitude, selectedHotel.geoCode.longitude]  :  [55.76, 37.64]
-    const zoom = selectedHotel? 13  :  2
+    const coords = selectedHotel ? [selectedHotel.geoCode.latitude, selectedHotel.geoCode.longitude] : [55.76, 37.64]
+    const zoom = selectedHotel ? 13 : 2
     const mapInstance = useRef(null)
     // const [open, setOpen] = useState(!!selectedHotel)
 
     const dispatch = useDispatch()
-    
+
     useEffect(() => {
         if (mapInstance?.current && selectedHotel?.geoCode?.latitude && selectedHotel?.geoCode?.longitude) {
             // mapInstance.current.panTo(coords)
@@ -39,7 +39,7 @@ function Map() {
             });
 
             data?.forEach((item) => {
-                const {latitude, longitude} = item.geoCode
+                const { latitude, longitude } = item.geoCode
                 const placemark = new ymaps.Placemark([latitude, longitude]);
 
                 placemark.events.add('click', () => {
@@ -61,9 +61,14 @@ function Map() {
     //     setOpen(true);
     // };
 
-      const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
-      const openModal = () => setModalIsOpen(true);
+    const openModal = () => setModalIsOpen(true);
+
+    const onOk = () => {
+        setModalIsOpen(false)
+        onClose()
+    }
 
     return (
         <>
@@ -79,10 +84,10 @@ function Map() {
                     <p>Страна: {selectedHotel?.address.countryCode}</p>
                     <p>Адрес: {selectedHotel?.address.cityName}</p>
                     <p>Название отеля: {selectedHotel?.name}</p>
-                    <button onClick={openModal} style={{cursor: 'pointer',  backgroundColor: 'transparent',  color: '#CC9933',   border: '1px solid #CC9933',   padding: '13px 20px'}}>Забронировать отель</button>
+                    <button onClick={openModal} style={{ cursor: 'pointer', backgroundColor: 'transparent', color: '#CC9933', border: '1px solid #CC9933', padding: '13px 20px' }}>Забронировать отель</button>
                 </Drawer>
             </div>
-            {modalIsOpen === true ? <ModalComponent/> : ''}
+            {modalIsOpen && <ModalComponent onOk={onOk} open={modalIsOpen} onCancel={() => setModalIsOpen(false)} />}
         </>
     );
 }
