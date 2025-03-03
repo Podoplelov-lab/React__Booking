@@ -1,0 +1,40 @@
+select {
+    text-align: center;
+    width: 100%;  /* Задаем ширину */
+    padding: 10px 20px;  /* Внутренние отступы */
+    font-size: 1rem;  /* Размер шрифта */
+    border-radius: 8px;  /* Закругленные углы */
+    border: 1px solid #ccc;  /* Цвет границы */
+    background-color: #fff;  /* Белый фон */
+    color: #333;  /* Цвет текста */
+    transition: all 0.3s ease;  /* Плавные переходы для всех изменений */
+  }
+  
+  /* Стили для состояния, когда select в фокусе */
+  select:focus {
+    border-color: #007bff;  /* Синие границы при фокусе */
+    outline: none;  /* Убираем стандартную рамку фокуса */
+  }
+  
+  /* Стили для кастомной стрелочки */
+  select::-ms-expand {
+    display: none; /* Убираем стандартную стрелочку для IE */
+  }
+  
+  /* Стили для контейнера, если требуется */
+  .select-wrapper {
+    position: relative;
+    width: 200px;  /* Устанавливаем ширину для обертки */
+    margin: 20px 0;  /* Отступы сверху и снизу */
+  }
+  
+  /* Пример стилизованной стрелочки */
+  .select-wrapper::after {
+    content: '▼';  /* Стрелка вниз */
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;  /* Чтобы стрелка не мешала взаимодействию с select */
+  }

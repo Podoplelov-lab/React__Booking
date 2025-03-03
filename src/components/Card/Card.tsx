@@ -18,15 +18,9 @@ function Card ({item}) {
         <li className="placement-item">
         <article>
           <div className="border-placement">
-            <div className="className">
-              <span className="price-placement">
-                от </span>
-              <b className="price">4698</b>
-              <span className="night">/ночь</span>
               <div>
                   {item.overallRating}
               </div>
-            </div>
             <h3 className="text-placement">
                 {item?.name}
             </h3>

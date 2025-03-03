@@ -5,3 +5,22 @@
     list-style: none;
     gap: 40px;
 }
+
+/* Добавляем фоновое изображение к каждому элементу списка */
+.li {
+    list-style: none;  /* Убираем стандартные маркеры */
+    padding: 20px;  /* Отступы */
+    margin: 10px 0;  /* Отступы между элементами */
+    background-image: url('../src/img/logo.svg');  /* Путь к фоновому изображению */
+    background-size: cover;  /* Масштабируем изображение */
+    background-position: center;  /* Центрируем изображение */
+    background-repeat: no-repeat;  /* Не повторять изображение */
+    border-radius: 8px;  /* Закругленные углы */
+    color: #fff;  /* Цвет текста */
+    transition: transform 0.3s ease;  /* Плавное увеличение при наведении */
+  }
+  
+  .li:hover {
+    transform: scale(1.05);  /* Увеличение элемента при наведении */
+  }
+  

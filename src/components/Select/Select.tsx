@@ -1,4 +1,5 @@
 import { FC } from "react"
+import './Select.css'
 
 type SelectProps = {
     options: {key: string | number, value: string | number}[]
@@ -15,7 +16,7 @@ const Select: FC<SelectProps> = ({options, value, onChange}) => {
 
     return(
         <select value={value} onChange={handleSelectChange}>
-        {options.map(({key, value}) => {
+        {options.map(({key, value}) => {1
             return <option key={key} value={key}>{value}</option>
         })}
         {/* <option value="RU">RU</option>
