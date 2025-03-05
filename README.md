@@ -18,4 +18,6 @@
 
 <h2>Запуск проекта</h2>
 
+```bash
+json-server --watch db.json --port 5000
 npm run dev
