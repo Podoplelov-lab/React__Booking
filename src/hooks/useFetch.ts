@@ -8,7 +8,9 @@ export default function useFetch<T>(fn: () => Promise<T>) {
   useEffect(() => {
     setLoading(true);
     fn()
-      .then((response: any) => response.json())
+      .then((response: any) => {
+        return response.json()
+      })
       .then(({data}) => {
         setData(data);
       })

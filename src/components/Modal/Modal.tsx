@@ -39,6 +39,8 @@ const ModalComponent: FC<Props> = ({ onCancel, open, onOk }) => {
     }
   };
 
+  const formId = "1"
+
   return (
     <Modal
       title="Введите данные"
@@ -49,10 +51,11 @@ const ModalComponent: FC<Props> = ({ onCancel, open, onOk }) => {
           Отменить
         </Button>,
         <Button
+          form= {formId}
           key="submit"
           type="primary"
           loading={loading}
-          onClick={() => form.submit()}
+          htmlType="submit"
         >
           Отправить
         </Button>,
@@ -60,6 +63,7 @@ const ModalComponent: FC<Props> = ({ onCancel, open, onOk }) => {
     >
       <Form
         form={form}
+        id={formId}
         layout="vertical"
         onFinish={handleSubmit}
         initialValues={{

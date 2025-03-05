@@ -1,0 +1,27 @@
+.container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .like {
+    width: 30px; 
+    max-height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  .count {
+    position: absolute;
+    top: -5px;    /* Смещение вверх */
+    right: -5px;  /* Смещение вправо */
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 6px;
+    border-radius: 50%;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }

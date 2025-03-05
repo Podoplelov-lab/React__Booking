@@ -15,3 +15,13 @@ export type Hotel = {
         longitude: number
     }
 }
+
+export type Booking = {
+    id: string,
+    dateIn: string,
+    dateOut: string,
+    firstName: string,
+    lastName: string,
+    phone: string,
+    email: string
+}

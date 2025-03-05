@@ -3,6 +3,7 @@ import "./Header.css";
 import { Link } from "react-router";
 import { Popover } from "antd";
 import Popovers from "../Popover/Popover";
+import Booking from "../../containers/Booking/Booking";
 
 function Header() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function Header() {
     try {
       const response = await fetch("http://localhost:5000/users");
       const data = await response.json();
+      console.log(response)
       setCount(data.length);
       console.log("Количество пользователей:", data.length);
     } catch (error) {
@@ -19,9 +21,9 @@ function Header() {
     }
   };
 
-  useEffect(() => {
-    getUsersCount();
-  }, []);
+  // useEffect(() => {
+  //   getUsersCount();
+  // }, []);
 
   const handleVisibleChange = (visible: boolean) => {
     setVisible(visible);
@@ -53,7 +55,7 @@ function Header() {
             Личный&nbsp;кабинет
           </a>
           
-          {/* Поповер при клике на "лайк" */}
+          {/* Поповер при клике на "лайк"
           <Popover
             content={<Popovers />}
             title="Избранное"
@@ -63,7 +65,9 @@ function Header() {
               <img className="like" src="../src/img/like.png" alt="Избранное" />
               {count > 0 && <span className="like-count">{count}</span>}
             </div>
-          </Popover>
+          </Popover> */}
+
+              <Booking/>
 
         </div>
 
